@@ -1,0 +1,74 @@
+1. index.js
+------------
+Role:
+    Entry Point of the program.
+
+Work :
+    1) Receives user input(command+argument)
+    2) Pass this input to commandParser.js
+    3) call dispatcher to execute the correct action.
+
+2. commandParser.js
+--------------------
+Role:
+    Turns user input into a structured format.
+
+Responsibilities:
+    Parse raw string commands like:
+    "add Buy milk"
+    "delete 3"
+    "list"
+
+Output an object:
+    { command: "add", args: ["Buy milk"] }
+
+This is where we use your string & type conversion knowledge.
+
+3. dispatcher.js
+-----------------
+Role:
+    Routes the parsed command to the correct function.
+
+Responsibilities:
+    If command is "add" → call taskManager.addTask()
+
+    If "list" → taskManager.listTasks()
+
+    If "delete" → taskManager.deleteTask()
+
+    If "complete" → taskManager.completeTask()
+
+This file prevents global scope pollution by centralizing command handling.
+
+4. taskManager.js
+------------------
+Role:
+    The heart of this project.
+
+Responsibilities:
+    Maintain in-memory tasks array (local scope)
+
+    Define functions:
+
+    addTask
+
+    listTasks
+
+    completeTask
+
+    deleteTask
+
+This is where all your array, object, loops, and functions knowledge is used.
+
+The tasks array stays hidden inside this file — never global.
+
+utils/helpers.js
+----------------
+Role:
+    Store common helper functions (string cleaning, id generation, safe number conversion).
+
+We use utils only when needed.
+
+tests
+------
+You may write test cases here later.

@@ -1,0 +1,52 @@
+Task 2 Completed. 
+Please review
+------------------
+Part A: Define the Task Object Model
+-> 
+    id -> number
+    title -> string
+    isCompleted -> boolean
+    createdAt -> date
+
+    {id:number , title:string , isCompleted:boolean , createdAt:date}
+
+Part B: Finalize Public Function Signatures
+->
+    function name :  addTask
+    parameters : title:string and id:number
+    returns : created task
+    modifies : taskArray and id
+
+    function name : listTasks
+    parameters : -
+    returns : taskArray : contains all tasks
+    modifies : -
+
+    function name : completeTask
+    parameters : id
+    returns : updated task having provided id
+    modifies : taskArray
+
+    function name : deleteTask
+    parameters : id
+    returns : deleted task having provided id
+    modifies : taskArray
+
+Part C: Correct Edge Cases (Function Responsibility)
+->
+    addTask
+        title empty
+        title not string
+        title only spaces
+
+    listTasks
+        no tasks in the list
+
+    completeTask
+        id not a number
+        id not found
+        task already completed (decide what to do)
+
+    deleteTask
+        id not a number
+        id not found
