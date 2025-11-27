@@ -4,7 +4,7 @@
 /*
     function name - parseCommand
     parameters - inputedString : string
-    returns - an object : contains command and task title
+    returns - an object : contains command and task title as arg array
 */
 function parseCommand(inputedString="add buy milk"){
     // checking length of inputedString and validated type
@@ -21,10 +21,15 @@ function parseCommand(inputedString="add buy milk"){
 
     // converting inputedString into an Array
     /*
-        add buy milk
+        input : add buy milk
+        ->
+            command : "add"
+            args : ["buy milk"]
 
-        command : "add"
-        args : ["buy milk"]
+        input : list
+        ->
+            command : list
+            args : []
     */
     // splits the inputedString having seperator " "
     let stringWordArray = inputedString.split(" ")
@@ -36,20 +41,23 @@ function parseCommand(inputedString="add buy milk"){
     
     console.log("in parse command method : "+commandWord+" - "+stringWordArray)
 
-    // create a string of remaning elements in stringWordArray
+    // array to store arguments if present else send empty array
     let argArray = []
 
+    // checking current length of stringWordArray
     if(stringWordArray.length!=0){
-        let argString = stringWordArray.join(" ")
+         // create a string of remaning elements in stringWordArray
+    
+        let argString = stringWordArray.join(" ")// using " " as seperator to keep space between words
 
         // an array to pass as args argument in object
         argArray = [argString]
     }
-    
    
     // returning an object
     return {command : commandWord , args : argArray}
 }
 
 
+// --- test ---
 console.log(parseCommand("complete 1"))
